@@ -1,20 +1,16 @@
 <template>
   <v-app>
-    <v-row>
-      <v-col>
-        <TopNav/>
-      </v-col>
-      <v-col>
-        <NavBar/>
-      </v-col>
-    </v-row>
+    <TopNav></TopNav>
+    <router-view></router-view>
+    <Hero></Hero>
+
   </v-app>
 </template>
 
 
 <script>
 import TopNav from './components/TopNav.vue'
-import NavBar from './components/NavBar.vue'
+import Hero from './components/Hero.vue'
 
 
 export default {
@@ -22,7 +18,7 @@ export default {
 
   components: {
     TopNav,
-    NavBar
+    Hero
   },
 
   data: () => ({

@@ -14,9 +14,46 @@
         </v-col>
       </v-row>
     </v-container>
+    <!-- ********************** NAV BAR **************************************-->
+    <v-toolbar class="navbar">
+        <span class="hidden-sm-and-up">
+          <v-toolbar-side-icon @click="sidebar = !sidebar">
+          </v-toolbar-side-icon>
+        </span>
+        <v-toolbar-title>
+          <v-img class="img" src="electrRoomHorizontal-removebg.png">            
+          </v-img>
+        </v-toolbar-title>
+        <v-autocomplete
+        :items="items"
+        auto-select-first
+        class="centered-autocomplete search-nav"
+        density="comfortable"
+        item-props
+        menu-icon=""
+        placeholder="Kerko produktin"
+        prepend-inner-icon="mdi-magnify"
+        theme="light"
+      ></v-autocomplete>
+
+        
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="hidden-xs-only nav-font">
+          <v-btn
+            
+            v-for="item in menuItems"
+            :key="item.title"
+            :to="item.path">
+            {{ item.title }}
+          </v-btn>
+          <v-btn class="sign">
+            Sign IN/OUT
+          </v-btn>
+        </v-toolbar-items>
+      </v-toolbar>
+
   </nav>
 </v-main>
-
   </v-app>
 </template>
 <script>
@@ -47,7 +84,15 @@ export default{
           title:"Puno me ne",
           path: mdijs.mdiMenuDown
         }
-      ]
+      ],
+      appTitle: 'Awesome App',
+        sidebar: false,
+        menuItems: [
+            { title: 'Home', path: '/home', icon: 'home' },
+            { title: 'Produktet', path: '/signup', icon: 'face' },
+            { title: 'Lajmet e fundit', path: '/signin', icon: 'lock_open' }
+       ],
+       
     }
   }
 }
@@ -79,6 +124,9 @@ export default{
   margin-top: 3px;
   margin-right: -5px; 
 }
+.wider-autocomplete .v-input__slot {
+  width: 300px; /* Shtoni gjerësinë që dëshironi */
+}
 
 .title {
   margin-top: 5px; /* Ndrysho vlerën sipas preferencës suaj */
@@ -89,4 +137,35 @@ export default{
   padding-left: 10px;
 }
 
+.navbar{
+  margin-top: -14px;
+  padding-bottom: 10px;
+  background-color: #0E2730;
+}
+
+.nav-font{
+  color: white;
+  padding: 10px;
+  padding-right: 10px;
+  font-size:larger;
+}
+.img{
+  margin-top: 12px;
+  margin-left: -30px;
+  height: 220px;
+}
+.sign{
+  padding-right: 50px;
+}
+.search-nav{
+  color: white;
+  margin-bottom: -30px;
+  margin-right: -170px;
+  width: 10px !important;
+  height: min-content;
+}
+.centered-autocomplete {
+  margin-top: -10px; /* Vendos tekstin në qendër vertikalisht */
+  max-height: 50px; /* Përshtatni gjerësinë që dëshironi */
+} 
 </style>
