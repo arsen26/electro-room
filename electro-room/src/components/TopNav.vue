@@ -25,16 +25,12 @@
           </v-img>
         </v-toolbar-title>
         <v-autocomplete
-        :items="items"
-        auto-select-first
-        class="centered-autocomplete search-nav"
-        density="comfortable"
-        item-props
-        menu-icon=""
-        placeholder="Kerko produktin"
-        prepend-inner-icon="mdi-magnify"
-        theme="light"
-      ></v-autocomplete>
+        class="search-nav"
+  clearable
+  label="Kerko per produkt"
+  :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+  variant="underlined"
+></v-autocomplete>
 
         
         <v-spacer></v-spacer>

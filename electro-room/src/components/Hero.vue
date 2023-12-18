@@ -1,23 +1,26 @@
         <template>
         <v-row class="row-hero">
         <v-col class="col-category" cols="2">
-            <div  v-for="(item, i) in categoryTitle" class="categories-title-style">
+            <div  v-for="(item, i) in categoryTitle" :key="i" class="categories-title-style">
                 <svg-icon class="category-icon" type="mdi" :path="item.path"></svg-icon>
 
                 {{item.title}}
             </div>
+            <!-- GJENERIMI I TE GJITHA KATEGORIVE-->
     <v-row v-for="(category, i) in categories" 
     :key="i">
 
         <v-btn class="button-style" variant="text">
-            <svg-icon class="button-icon" type="mdi" :path="category.path"></svg-icon>
+            <svg-icon class="button-icon" type="mdi"  :path="category.path"></svg-icon>
 
             {{ category.title }}
     </v-btn>
     </v-row>
     </v-col>
-        <v-col>
-            <v-card class="card-hero-style full-size" max-width="350" >
+
+    <!-- BANERI KRYESOR-->
+        <v-col cols="3" >
+            <v-card class="card-hero-style full-size">
 
     <v-img
     class="card-hero-image"
@@ -25,28 +28,46 @@
     cover
     
     ></v-img>
-
-
     </v-card>
         </v-col>
+        
+        <!-- GJENERIMI I KARTAVE QE DO JEN DJATHTAS EKRANIT-->
+            <v-col class="card-container" cols="6">
+                <v-row class="card-container" v-for="(item,index) in heroCards" :key="index">
+                    <v-card
+            color="#1F7087"
+            
+            class="card-style"
+          >
+            <div class="d-flex flex-no-wrap ">
+                <v-avatar
+                class="ma-0"
+                size="185"
+                rounded="0"
+              >
+                <v-img :src="item.image"></v-img>
+              </v-avatar>
+              <div>
+                <v-card-title class="text-h5">
+                  {{ item.title }}
+                </v-card-title>
+                <p class="description-style">{{ item.description }}</p>
+                <!-- <v-card-subtitle>{{ item.description }}</v-card-subtitle> -->
 
-        <!-- ******************HERO CARDS******************-->
-        <v-col class="card-col">
-            <v-row align="center" justify="center">
-    <v-col cols="auto">
-      <v-card
-      v-for="(item, index) in heroCards" :key="index"        class="mx-auto"
-        max-width="444"
-      >
-        <v-img :src="require(`@/assets/${item.image}`)"></v-img>
-
-        <v-card-title>{{ item.title }}</v-card-title>
-        <v-card-text>{{ item.description }}</v-card-text>
-      </v-card>
-    </v-col>
-
-
-  </v-row>  
+                <v-card-actions>
+                  <v-btn
+                    class="ms-2"
+                    variant="outlined"
+                    size="small"
+                  >
+                    {{ item.button }}
+                  </v-btn>
+                </v-card-actions>
+              </div>
+            </div>
+          </v-card>
+                </v-row>
+        
         </v-col>
         </v-row>
     </template>
@@ -124,19 +145,19 @@
                             title:"Back in time with nintendo switch",
                             description:"Nintendo Switch është një sistem i suksesshëm dhe është përdorur nga lojtarë të të gjitha moshat në mbarë botën. Ai është një sistem i përshtatshëm, i dizajnuar për të përfshirë dhe për të ofruar mundësinë për të shijuar lojërat e Nintendo në çdo moment dhe kudo.",
                             button:'Detajet...',
-                            image:'nintendo.png'
+                            image:require('@/assets/nintendo.png')
                         },
                         {
                             title:"Work with dual monitor !",
                             description:"Pse duhet te punoni me dual monitor? Dual monitorët e përmirësojnë produktivitetin duke ofruar më shumë hapësirë pune. Ky model pune lejon shikimin e dy dritareve të ndryshme njëkohësisht, duke përmirësuar organizimin e punës. Mundësia për të kryer multitasking më lehtë është një avantazh kryesor i punës me dual monitor.",
                             button:'Detajet...',
-                            image:'doublemonitor.png'
+                            image:require('@/assets/doublemonitor.png')
                         },
                         {
                             title:"Latest razer keyboard !",
                             description:"Fjala e fundit e evolucionit të tastierës është këtu tek ne. Razer Huntsman Line përmban butonat e reja optike Razer™ Analoge Gen-2, duke siguruar aktivizim me shpejtësinë e dritës. ",
                             button:'Detajet...',
-                            image:'keyboard.png'
+                            image:require('@/assets/keyboard.png')
                         }
                     ]
                 }
@@ -150,6 +171,7 @@
 
     .row-hero{
         display: flex;
+        flex-direction: row;
         margin-top: -950px;
         background-color: #194554;
     }
@@ -163,11 +185,6 @@
         font-family: 'Poppins';
         font-style: oblique 20deg;
     }
-    .categories-style{
-        
-        font-family: 'Poppins';
-        }
-        
     .categories-title-style{
         width: 240px;
 
@@ -244,5 +261,13 @@
     }
 
     }
+
+    .description-style{
+        font-size: 12px;
+    }
+/card-container{
+    padding-left: 10px !important;
+}
+
     </style>
 
