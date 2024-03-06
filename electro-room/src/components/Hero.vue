@@ -1,5 +1,5 @@
         <template>
-        <v-row class="row-hero">
+        <v-row justify="space-around" class="row-hero">
         <v-col class="col-category" cols="2">
             <div  v-for="(item, i) in categoryTitle" :key="i" class="categories-title-style">
                 <svg-icon class="category-icon" type="mdi" :path="item.path"></svg-icon>
@@ -20,7 +20,7 @@
 
     <!-- BANERI KRYESOR-->
         <v-col cols="3" >
-            <v-card class="card-hero-style full-size">
+            <v-card class="full-size">
 
     <v-img
     class="card-hero-image"
@@ -33,12 +33,10 @@
         
         <!-- GJENERIMI I KARTAVE QE DO JEN DJATHTAS EKRANIT-->
             <v-col class="card-container" cols="6">
-                <v-row class="card-container" v-for="(item,index) in heroCards" :key="index">
+                <v-row style="width: 96%;padding-top: 15px;" class="card-container" v-for="(item,index) in heroCards" :key="index">
                     <v-card
             color="#1F7087"
-            
-            class="card-style"
-          >
+            >
             <div class="d-flex flex-no-wrap ">
                 <v-avatar
                 class="ma-0"
@@ -47,7 +45,7 @@
               >
                 <v-img :src="item.image"></v-img>
               </v-avatar>
-              <div>
+              <div style="width: 70%;">
                 <v-card-title class="text-h5">
                   {{ item.title }}
                 </v-card-title>
@@ -170,9 +168,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 
     .row-hero{
-        display: flex;
-        flex-direction: row;
-        margin-top: -950px;
+        display: flexbox;
+        align-content: center;
+        margin-top: -550px;
         background-color: #194554;
     }
     .col-category{
@@ -210,11 +208,7 @@
     .button-icon{
         color: black;
     }
-    .card-hero-style{
-        margin-top: 7px;
-        margin-left: 10px;
-        height: 450px;
-    }
+    
 
     .card-hero-image{
         width: 100% !important; 
@@ -265,7 +259,7 @@
     .description-style{
         font-size: 12px;
     }
-/card-container{
+    card-container{
     padding-left: 10px !important;
 }
 

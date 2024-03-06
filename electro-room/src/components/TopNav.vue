@@ -6,7 +6,7 @@
       <v-row>
         <v-col class="col-style" cols="18" v-for="(topheader, i) in topHeaders" :key="i">
           <div class="top-text">
-            <svg-icon class="icons" type="mdi" :path="topheader.path"></svg-icon>
+            <svg-icon style="cursor: pointer;" class="icons" type="mdi" :path="topheader.path"></svg-icon>
             <a href="">
               <span class="title">{{ topheader.title }}</span>
             </a>
