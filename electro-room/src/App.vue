@@ -1,30 +1,29 @@
 <template>
   <v-app>
-    <TopNav></TopNav>
-    <router-view></router-view>
+    <TopNav class="top-nav"></TopNav>
     <Hero></Hero>
-
+    <productList></productList>
   </v-app>
 </template>
-
 
 <script>
 import TopNav from './components/TopNav.vue'
 import Hero from './components/Hero.vue'
-
+import productList from './components/productList.vue'
 
 export default {
   name: 'App',
-
   components: {
     TopNav,
-    Hero
+    Hero,
+    productList
   },
-
   data: () => ({
     //
   }),
 }
 </script>
-<style>
+
+<style scoped>
+
 </style>

@@ -1,74 +1,52 @@
-        <template>
-        <v-row justify="space-around" class="row-hero">
+<template>
+      <v-row justify="space-around" class="row-hero">
+        <!-- Kategoria -->
         <v-col class="col-category" cols="2">
-            <div  v-for="(item, i) in categoryTitle" :key="i" class="categories-title-style">
-                <svg-icon class="category-icon" type="mdi" :path="item.path"></svg-icon>
-
-                {{item.title}}
-            </div>
-            <!-- GJENERIMI I TE GJITHA KATEGORIVE-->
-    <v-row v-for="(category, i) in categories" 
-    :key="i">
-
-        <v-btn class="button-style" variant="text">
-            <svg-icon class="button-icon" type="mdi"  :path="category.path"></svg-icon>
-
-            {{ category.title }}
-    </v-btn>
-    </v-row>
-    </v-col>
-
-    <!-- BANERI KRYESOR-->
-        <v-col cols="3" >
-            <v-card class="full-size">
-
-    <v-img
-    class="card-hero-image"
-    :src="require('@/assets/headset.png')"
-    cover
-    
-    ></v-img>
-    </v-card>
+          <div v-for="(item, i) in categoryTitle" :key="i" class="categories-title-style">
+            <svg-icon class="category-icon" type="mdi" :path="item.path"></svg-icon>
+            {{ item.title }}
+          </div>
+          <!-- Gjenerimi i të gjitha kategorive -->
+          <v-row v-for="(category, i) in categories" :key="i">
+            <v-btn class="button-style" variant="text">
+              <svg-icon class="button-icon" type="mdi" :path="category.path"></svg-icon>
+              {{ category.title }}
+            </v-btn>
+          </v-row>
         </v-col>
-        
-        <!-- GJENERIMI I KARTAVE QE DO JEN DJATHTAS EKRANIT-->
-            <v-col class="card-container" cols="6">
-                <v-row style="width: 96%;padding-top: 15px;" class="card-container" v-for="(item,index) in heroCards" :key="index">
-                    <v-card
-            color="#1F7087"
-            >
-            <div class="d-flex flex-no-wrap ">
-                <v-avatar
-                class="ma-0"
-                size="185"
-                rounded="0"
-              >
-                <v-img :src="item.image"></v-img>
-              </v-avatar>
-              <div style="width: 70%;">
-                <v-card-title class="text-h5">
-                  {{ item.title }}
-                </v-card-title>
-                <p class="description-style">{{ item.description }}</p>
-                <!-- <v-card-subtitle>{{ item.description }}</v-card-subtitle> -->
-
-                <v-card-actions>
-                  <v-btn
-                    class="ms-2"
-                    variant="outlined"
-                    size="small"
-                  >
-                    {{ item.button }}
-                  </v-btn>
-                </v-card-actions>
-              </div>
-            </div>
+  
+        <!-- Banneri kryesor -->
+        <v-col cols="3">
+          <v-card class="full-size">
+            <v-img class="card-hero-image" :src="require('@/assets/headset.png')" cover></v-img>
           </v-card>
-                </v-row>
-        
         </v-col>
-        </v-row>
-    </template>
+  
+        <!-- Gjenerimi i kartave që do jenë djathtas ekranit -->
+        <v-col class="card-container" cols="6">
+          <v-row style="width: 96%; padding-top: 15px;" class="card-container" v-for="(item, index) in heroCards" :key="index">
+            <v-card color="#1F7087">
+              <div class="d-flex flex-no-wrap">
+                <v-avatar class="ma-0" size="185" rounded="0">
+                  <v-img :src="item.image"></v-img>
+                </v-avatar>
+                <div style="width: 70%;">
+                  <v-card-title class="text-h5">{{ item.title }}</v-card-title>
+                  <p class="description-style">{{ item.description }}</p>
+                  <!-- <v-card-subtitle>{{ item.description }}</v-card-subtitle> -->
+                  <v-card-actions>
+                    <v-btn class="ms-2" variant="outlined" size="small">
+                      {{ item.button }}
+                    </v-btn>
+                  </v-card-actions>
+                </div>
+              </div>
+            </v-card>
+          </v-row>
+        </v-col>
+      </v-row>
+  </template>
+  
 
     <script>
     import SvgIcon from '@jamescoyle/vue-icon'
@@ -163,14 +141,16 @@
         }
     </script>
 
-    <style>
+    <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 
     .row-hero{
-        display: flexbox;
-        align-content: center;
-        margin-top: -550px;
+        display: flex;
+        flex-wrap: wrap;
+        height: fit-content;
+        margin-top: -950px;
+        padding-bottom: 35px;
         background-color: #194554;
     }
     .col-category{
@@ -178,7 +158,7 @@
         margin-top: 20px;
         margin-left: 20px;
         border-radius: 5px;
-        height: 450px;
+        height: max-content;
         width: 240px;
         font-family: 'Poppins';
         font-style: oblique 20deg;

@@ -28,7 +28,7 @@
         class="search-nav"
   clearable
   label="Kerko per produkt"
-  :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+  :items="['Kompjuter', 'Laptop', 'Aksesore', 'Zyre', 'Dhurata']"
   variant="underlined"
 ></v-autocomplete>
 
