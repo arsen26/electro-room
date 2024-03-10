@@ -10,10 +10,10 @@
           :key="index"
 
         >
-          <v-card  max-width="344">
+          <v-card class="card-style"  max-width="344">
             <v-card-title>{{ item.title }}</v-card-title>
             <v-card-text>{{ item.description }}</v-card-text>
-            <v-card-subtitle>Price: ${{ item.price }}</v-card-subtitle>
+            <v-card-subtitle> <b>Price: ${{ item.price }}</b></v-card-subtitle>
             <v-img :width="320"   aspect-ratio="3/4"
  :src="item.productImage"></v-img>
             <v-btn color="primary">{{ item.button }}</v-btn>
@@ -157,7 +157,20 @@
   </script>
   
   <style scoped>
-    
+    .container{
+      padding-top: 150px;
+    }
+
+    .card-style:hover{
+        background-color: #194554;
+        color: white;
+        transform: scale(1.02);
+       
+    }
+    .card-style:hover .button{
+          background-color: white !important;
+          color: black;
+    }
 
 </style>
   
